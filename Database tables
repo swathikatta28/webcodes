@@ -1,0 +1,91 @@
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.41 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database laptops;
+Query OK, 1 row affected (0.05 sec)
+
+mysql> use laptops;
+Database changed
+mysql> create table laptops(id int,lname varchar(200),lcost int,limage varchar(500),qty int);
+Query OK, 0 rows affected (0.24 sec)
+
+mysql> insert into values laptops(1,"laptop1",50000,"https://ecommproject1.s3.eu-north-1.amazonaws.com/laptop1.jpeg",50);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'values laptops(1,"laptop1",50000,"https://ecommproject1.s3.eu-north-1.amazonaws.' at line 1
+mysql> insert into laptops values(1,"laptop1",50000,"https://ecommproject1.s3.eu-north-1.amazonaws.com/laptop1.jpeg",50);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into laptops values(2,"laptop2",60000,"https://ecommproject1.s3.eu-north-1.amazonaws.com/laptop2.jpeg",40);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into laptops values(3,"laptop3",70000,"https://ecommproject1.s3.eu-north-1.amazonaws.com/laptop3.jpeg",70);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into laptops values(4,"laptop4",80000,"https://ecommproject1.s3.eu-north-1.amazonaws.com/laptop4.jpeg",40);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into laptops values(5,"laptop5",90000,"https://ecommproject1.s3.eu-north-1.amazonaws.com/laptop.jpeg",50);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select * from laptops;
++------+---------+-------+----------------------------------------------------------------+------+
+| id   | lname   | lcost | limage                                                         | qty  |
++------+---------+-------+----------------------------------------------------------------+------+
+|    1 | laptop1 | 50000 | https://ecommproject1.s3.eu-north-1.amazonaws.com/laptop1.jpeg |   50 |
+|    2 | laptop2 | 60000 | https://ecommproject1.s3.eu-north-1.amazonaws.com/laptop2.jpeg |   40 |
+|    3 | laptop3 | 70000 | https://ecommproject1.s3.eu-north-1.amazonaws.com/laptop3.jpeg |   70 |
+|    4 | laptop4 | 80000 | https://ecommproject1.s3.eu-north-1.amazonaws.com/laptop4.jpeg |   40 |
+|    5 | laptop5 | 90000 | https://ecommproject1.s3.eu-north-1.amazonaws.com/laptop.jpeg  |   50 |
++------+---------+-------+----------------------------------------------------------------+------+
+5 rows in set (0.17 sec)
+
+mysql> create database watches;
+Query OK, 1 row affected (0.06 sec)
+
+mysql> use watches;
+Database changed
+mysql> create table watches(id int,wname varchar(50),wcost int,wimage varchar(500),qty int);
+Query OK, 0 rows affected (0.19 sec)
+
+mysql> insert into watches values(1,"watch1",4000,"https://ecommbat.s3.eu-north-1.amazonaws.com/watch1.jpeg",70),(2,"watch2",5000,"https://ecommbat.s3.eu-north-1.amazonaws.com/watch2.jpeg",90),(3,"watch3",5000,"https://ecommbat.s3.eu-north-1.amazonaws.com/watch3.jpeg",80),(4,"watch4",6000,"https://ecommbat.s3.eu-north-1.amazonaws.com/watch4.jpeg",50),(5,"watch5",6500,"https://ecommbat.s3.eu-north-1.amazonaws.com/watch5.jpeg",30);
+Query OK, 5 rows affected (0.22 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from watches;
++------+--------+-------+----------------------------------------------------------+------+
+| id   | wname  | wcost | wimage                                                   | qty  |
++------+--------+-------+----------------------------------------------------------+------+
+|    1 | watch1 |  4000 | https://ecommbat.s3.eu-north-1.amazonaws.com/watch1.jpeg |   70 |
+|    2 | watch2 |  5000 | https://ecommbat.s3.eu-north-1.amazonaws.com/watch2.jpeg |   90 |
+|    3 | watch3 |  5000 | https://ecommbat.s3.eu-north-1.amazonaws.com/watch3.jpeg |   80 |
+|    4 | watch4 |  6000 | https://ecommbat.s3.eu-north-1.amazonaws.com/watch4.jpeg |   50 |
+|    5 | watch5 |  6500 | https://ecommbat.s3.eu-north-1.amazonaws.com/watch5.jpeg |   30 |
++------+--------+-------+----------------------------------------------------------+------+
+5 rows in set (0.00 sec)
+
+mysql> select * from mobiles;
+ERROR 1146 (42S02): Table 'watches.mobiles' doesn't exist
+mysql> use mobiles;
+Database changed
+mysql> select * from mobiles;
++------+---------+-------+----------------------------------------------------------------------------------------------+------+
+| id   | pname   | pcost | pimage                                                                                       | qty  |
++------+---------+-------+----------------------------------------------------------------------------------------------+------+
+|    1 | mobiles |  4000 | https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm6U1Yban7BKCpU4C2dFomll1HO-W_ieZQcw&s |  500 |
+|    2 | mobile2 |  3000 | https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2ykx2bQ3UspPdgoVFtanv4KtmDg6EAX_Krw&s |  500 |
+|    3 | mobile3 |  6000 | https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_nDYqG59YXgQpyUglH6eNNJCRqtjAUSdpIw&s |  600 |
+|    4 | mobile4 |  7000 | https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVIfVYybA-k27LPDXArr9hTJNObWhfekuzCA&s |  700 |
+|    5 | mobile5 |  9000 | https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrJmA8Q3abXO2rXhVhnicAS87H0q-6hJQdMw&s |  800 |
++------+---------+-------+----------------------------------------------------------------------------------------------+------+
+5 rows in set (0.02 sec)
+
+mysql>
