@@ -1,0 +1,156 @@
+import { Link, Outlet } from 'react-router-dom';
+import { useCart } from './CartContext';
+
+const Dashboard = () => {
+    const { cart } = useCart();
+
+    return (
+        <div className="dashboard-container">
+            <Link to="/cart" className="cart-icon">
+                🛒
+                {cart.length > 0 && <span className="cart-count">{cart.length}</span>}
+            </Link>
+            <nav className="dashboard-nav">
+                <Link to="">Laptops</Link>
+                <Link to="mobiles">Mobiles</Link>
+                <Link to="watches">Watches</Link>
+            </nav>
+
+            <div className="dashboard-content">
+                <Outlet />
+            </div>
+        </div> 
+    );
+};
+
+export default Dashboard;
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: #f8f9fa;
+    min-height: 100vh;
+}
+
+.dashboard-nav {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.dashboard-nav a {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.dashboard-nav a:hover {
+    background: #0056b3;
+}
+
+.dashboard-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #f4f4f4;
+}
+
+.login-box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-box button:hover {
+    background: #0056b3;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.cart-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.cart-item div {
+    text-align: left;
+}
+
+.cart-item button {
+    background: red;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.cart-item button:hover {
+    background: darkred;
+}
+
+.cart-back {
+    background: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-bottom: 10px;
+}
+
+.cart-back:hover {
+    background: #0056b3;
+}
